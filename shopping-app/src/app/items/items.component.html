@@ -1,0 +1,84 @@
+<nav class="white">
+    <div class="nav-wrapper">
+      <span class="brand-logo green-text">List of Items</span>   
+        <ul class="hide-on-med-and-down right">               
+            <li>    
+               <div class="center row">
+                  <div class="col s12 " >
+                    <div class="row" id="topbarsearch">
+                      <div class="input-field col s6 s12 red-text">
+                        <i class="red-text material-icons prefix" >search</i>
+                        <input type="text" placeholder="search" (keyup)="searchfunction('items')" id="item_search"  class="autocomplete red-text" >
+                        </div>
+                      </div>
+               </div>
+         </div>         
+        </ul>
+    </div>
+  </nav> 
+<table id="itemsTable">
+    <thead> 
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Stock</th>
+          <th>Quantity</th>
+        </tr>
+      </thead>
+<tr *ngFor="let a of itemsService.item">
+    <td>{{a.name}}</td>
+    <td>{{a.description}}</td> 
+    <td>Rs.{{a.price}}</td>
+    <td>{{a.quentity}}</td>
+   <td><input type="number" id="quantity" name="quantity" min="1" max="a.quantity" #quantity/></td>
+   <td><input type="button" class="btn btn-custom" value="Buy" (click)="saveOrder(a,quantity.value)"></td>
+</tr>
+
+</table>
+
+
+<nav class="white">
+    <div class="nav-wrapper">
+      <span class="brand-logo green-text">Ordered Items</span>   
+        <ul class="hide-on-med-and-down right">               
+            <li>    
+               <div class="center row">
+                  <div class="col s12 " >
+                    <div class="row" id="topbarsearch">
+                      <div class="input-field col s6 s12 red-text">
+                        <i class="red-text material-icons prefix">search</i>
+                        <input type="text" placeholder="search" (keyup)="searchfunction('orders')" id="order_search" class="autocomplete red-text" >
+                        </div>
+                      </div>
+                    </div>
+                  </div>         
+        </ul>
+    </div>
+  </nav> 
+
+
+<table id="orderTable">
+    <thead>
+        <tr>
+          <th>ID</th>
+          <th>DATE</th>
+          <th>NAME</th>
+          <th>DESCRIPTION</th>
+          <th>QUANTITY</th>
+          <th>TOTAL COST</th>
+        </tr>
+      </thead>
+    <tr *ngFor="let o of itemsService.orders">
+      
+        <td>{{o._id}}</td>
+        <td>{{o.createdAt}}</td>
+        <td>{{o.itemsName}}</td>
+        <td>{{o.orderDescription}}</td> 
+        <td>{{o.Quentity}}</td>
+        <td>Rs.{{o.totalCost}}</td>
+       <td><input type="button" class="btn btn-custom" value="Cancel" (click)="cancelOrder(o)"></td>
+       
+    </tr>
+    
+    </table>
