@@ -5,7 +5,7 @@ const orderRouter = require('./routers/orders')
 const cors = require('cors');
 const path = require('path')
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 8080
 
 const app = express()
 const publicDirectoryPath = path.join(__dirname, '/shopping-app/dist/shopping-app')
@@ -16,6 +16,6 @@ app.use('/api',itemRouter)
 app.use('/api',orderRouter)
 app.use(cors());
 
-app.listen(port, () => {
+app.listen(8080, () => {
     console.log('Server is up on port '+port)
 })
