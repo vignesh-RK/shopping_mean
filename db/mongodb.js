@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-mongoose.connect('mongodb://127.0.0.1:27017/shoppingData', {
+mongoose.connect('mongodb+srv://shoppingapp:vicky123@cluster0.lf6r8.mongodb.net/shopping-db?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false
