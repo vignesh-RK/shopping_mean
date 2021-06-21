@@ -16,6 +16,6 @@ app.use('/api',itemRouter)
 app.use('/api',orderRouter)
 app.use(cors());
 
-app.listen(8080, () => {
+app.listen(port, () => {
     console.log('Server is up on port '+port)
 })
